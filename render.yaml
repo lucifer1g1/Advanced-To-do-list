@@ -1,8 +1,8 @@
 services:
   - type: web
-    name: advanced-todo-list   # Change this to your project name
+    name: advanced-todo-list   
     env: static
-    buildCommand: ""       # No build needed for plain HTML/CSS/JS
-    staticPublishPath: todo-app   # Publish everything from repo root
-    branch: main           # Deploys from your main branch
-    plan: free             # Ensures free plan is used
+    buildCommand: ""       
+    staticPublishPath: todo-app   
+    branch: main          
+
