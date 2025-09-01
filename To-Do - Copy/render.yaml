@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: my-static-site   # Change this to your project name
+    name: advanced-todo-list   # Change this to your project name
     env: static
     buildCommand: ""       # No build needed for plain HTML/CSS/JS
     staticPublishPath: .   # Publish everything from repo root
