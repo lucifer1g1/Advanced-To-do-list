@@ -4,6 +4,7 @@ let addbttn = document.getElementById("add")
 let ismigrating = false
 let migratedfrom ;
 let taskmigrating ;
+let  migrating_time;
 let num ;
 
 function countnumactive(activedate){
@@ -151,7 +152,11 @@ function rendertasks(date) {
             ismigrating = true
             var modal = document.getElementById("myModal");
             taskmigrating  = migratebuttn.dataset.value
+            let taskbeingfound = (tasksbydate[date].find(task => task.text === taskmigrating))
+            migrating_time = taskbeingfound.hour
+            console.log(migrating_time)
             modal.style.display = "none"
+
             tasksbydate[date]= tasks.filter(task=> task.text !=taskmigrating)
 
         })
@@ -261,11 +266,12 @@ let migratetasktodate = e.target.id
         saveTasks()
     }
     
-(tasksbydate[migratetasktodate]).push(({ text: `${taskmigrating}`, status: false }))
+(tasksbydate[migratetasktodate]).push(({ text: `${taskmigrating}`, status: false , hour: `${parseInt(migrating_time)}`}))
 saveTasks(migratetasktodate)
 modal.style.display = "block";
 rendertasks(migratedfrom)
 ismigrating = false
+getintensity()
 
 
 
